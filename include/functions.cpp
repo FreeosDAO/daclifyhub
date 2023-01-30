@@ -50,6 +50,9 @@ void daclifyhub::create_group_account(name groupname, name creator, asset resour
         .accounts = actives
     };
 
+    // check(false, "!!! create_group_account before actions are run. net_quantity = >" + 
+    //            net_quantity.to_string() + "< cpu_quantity = >" + cpu_quantity.to_string() + "< ram_quantity = >" + ram_quantity.to_string() + "<");
+
 
     action(
         permission_level{ get_self(), "active"_n },
@@ -57,14 +60,14 @@ void daclifyhub::create_group_account(name groupname, name creator, asset resour
         "newaccount"_n,
         std::make_tuple(get_self(), groupname, setup_owner_authority, setup_active_authority )
     ).send();
-
+/*
     action(
         permission_level{ get_self(), "active"_n },
         "eosio"_n,
         "delegatebw"_n,
         std::make_tuple(get_self(), groupname, net_quantity, cpu_quantity, transfer_bw )
     ).send();
-
+*/
     action(
         permission_level{ get_self(), "active"_n },
         "eosio"_n,
