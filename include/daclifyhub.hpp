@@ -16,7 +16,7 @@
 using namespace std;
 using namespace eosio;
 
-const std::string VERSION = "0.1.1";
+const std::string VERSION = "0.1.3";
 
 CONTRACT daclifyhub : public contract {
   public:
@@ -80,6 +80,8 @@ CONTRACT daclifyhub : public contract {
     ACTION migrategrps (uint8_t batch, uint8_t skip);
 
     ACTION messagebus(name sender_group, name event, string message, vector<name> receivers);
+
+    ACTION version();
 
     ACTION clear();
     //notification handlers

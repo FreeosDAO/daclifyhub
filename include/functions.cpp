@@ -68,6 +68,16 @@ void daclifyhub::create_group_account(name groupname, name creator, asset resour
         std::make_tuple(get_self(), groupname, net_quantity, cpu_quantity, transfer_bw )
     ).send();
 */
+
+    // obtain NET and CPU
+    action(
+        permission_level{ get_self(), "active"_n },
+        "eosio.proton"_n,
+        "newaccres"_n,
+        std::make_tuple(groupname)
+    ).send();
+
+
     action(
         permission_level{ get_self(), "active"_n },
         "eosio"_n,

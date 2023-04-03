@@ -230,6 +230,15 @@ ACTION daclifyhub::messagebus(name sender_group, name event, string message, vec
   check(group_itr->state != 0, "Inactive group can't send messsages.");
 }
 
+/**
+ * version action displays the contract version number
+ */
+ACTION daclifyhub::version() {
+  std::string version_message = "version: " + VERSION;
+
+  check(false, version_message);
+}
+
 
 ACTION daclifyhub::unlinkgroup(name groupname) {
   //get_self is authorized to delete groups from the hub! The group will still exist though.
